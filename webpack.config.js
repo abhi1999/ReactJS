@@ -56,12 +56,13 @@ module.exports={
         new htmlWebpackPlugin({
             filename: 'index.html',
             template: __dirname + '/src/index.html'
-        }),
+        })
+        /*,
         new ExtractTextPlugin({
             filename:'[name].css'
         }), 
          new copyWebpackPlugin([
             {from: './src/settings.js', to: 'settings.js'}
-        ]) 
+        ]) */
     ]
 }
