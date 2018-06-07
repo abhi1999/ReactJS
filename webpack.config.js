@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const copyWebpackPlugin = require('copy-webpack-plugin')
-const extractTextPlugin = require('extract-text-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const path = require('path');
 const rootSrc = path.resolve(__dirname, './src');
 
@@ -20,26 +20,29 @@ module.exports={
         app:'./src/index.tsx'
     },
     output:{
-        filename:'[name].[hash].js',
-        path: __dirname +"/build"
+        filename:'[name].js',
+        path: path.join(__dirname ,"build")
     },
-    external:{
+    externals:[{
 
-    },
+    }],
     module:{
-        loaders:[
+        rules:[
             {
                 test :/\.(tsx|ts)$/,
                 exclude: /node_modules/,
-                loader :'awesome-typescript-loader'
+                loader :'awesome-typescript-loader',
+                query:{
+                    ignoreDiagnostics:[2339, 2307, 6143, 2551, 2345]
+                }
             },
-            {
-                test:/\.(scss|sass|css)$/,
-                use: extractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    user:['css-loader', 'sass-loader']
+             {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                  fallback: "style-loader",
+                  use: ['css-loader', 'sass-loader']
                 })
-            },
+            }, 
             {   
                 test :/\.(png|jpg)$/,
                 loader: 'file-loader'
@@ -54,11 +57,11 @@ module.exports={
             filename: 'index.html',
             template: __dirname + '/src/index.html'
         }),
-        new extractTextPlugin({
+        new ExtractTextPlugin({
             filename:'[name].css'
-        }),
-        new copyWebpackPlugin([
+        }), 
+         new copyWebpackPlugin([
             {from: './src/settings.js', to: 'settings.js'}
-        ])
+        ]) 
     ]
 }

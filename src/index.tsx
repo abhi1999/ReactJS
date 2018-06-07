@@ -1,7 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import {Provider} from "react-redux"
-//import configureStore from "./store/configureStore"
+//import {Provider} from "react-redux";
+import App from './App'
 
-//const store = configureStore()
-ReactDOM.render(<Provider><div> Hello World</div></Provider>, document.getElementById('app'));
+ReactDOM.render(
+   <App/>,
+    document.getElementById('app')
+);

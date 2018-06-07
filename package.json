@@ -9,12 +9,13 @@
     "start": "webpack-dev-server --progress --inline --hot --config webpack.config.js",
     "test:watch": "jest --watch",
     "tsc": "tsc -w || exit 0",
-    "build": "",
+    "build": "webpack --config webpack.config.js",
     "test-build": ""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/react-dom": "^16.0.6",
     "ag-grid": "^17.1.1",
     "ag-grid-enterprise": "^17.1.1",
     "ag-grid-react": "^17.1.0",
