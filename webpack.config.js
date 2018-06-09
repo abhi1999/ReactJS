@@ -1,6 +1,6 @@
 const webpack = require('webpack')
 const htmlWebpackPlugin = require("html-webpack-plugin");
-const copyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const path = require('path');
@@ -62,5 +62,6 @@ module.exports={
             filename: "[name].css",
             chunkFilename: "[id].css"
           })
+       // new CopyWebpackPlugin({"from":"src\settings.js", "to":"settings.js"})
     ]
 }

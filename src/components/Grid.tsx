@@ -55,7 +55,6 @@ export default class Grid extends React.Component {
                 width: 100
             });
         });
-
         return columnDefs;
     }
 
