@@ -15,6 +15,8 @@ export default class TLEMain extends React.Component {
                     <CardTitle></CardTitle>
                     <CardSubtitle></CardSubtitle>
                     <div>
+                        and image
+                        
                         place holder for nav buttons
                     </div>
                 </CardBody>

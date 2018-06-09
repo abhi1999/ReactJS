@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Card, CardBody, CardHeader, CardFooter, CardTitle, CardSubtitle } from 'reactstrap';
-export default class TLEMain extends React.Component {
+export default class Details extends React.Component {
     constructor(props, context) {
         super(props, context);
     }
@@ -10,8 +10,8 @@ export default class TLEMain extends React.Component {
             React.createElement(CardBody, null,
                 React.createElement(CardTitle, null),
                 React.createElement(CardSubtitle, null),
-                React.createElement("div", null, "and image place holder for nav buttons")),
+                React.createElement("div", null, "Details will go heres")),
             React.createElement(CardFooter, null, "Powered by Data Masons Software ")));
     }
 }
-//# sourceMappingURL=TLEMain.js.map
+//# sourceMappingURL=Details.js.map
