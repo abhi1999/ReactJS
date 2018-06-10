@@ -7,7 +7,7 @@ import 'ag-grid/dist/styles/theme-fresh.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import TLEMain from './components/tle-main/TLEMain';
-import TLEGrid from './components/tle-grid/TLEGrid';
+import TLEGrid from './components/tle-grid/TleGrid';
 import Sidebar from './components/tle-sidebar/Sidebar';
 import Details from "./components/tle-details/Details";
 
