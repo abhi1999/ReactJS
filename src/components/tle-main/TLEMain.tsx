@@ -2,8 +2,11 @@ import * as  React from 'react';
 import { Card, CardImg, CardText, CardBody,CardHeader,CardFooter,
     CardTitle, CardSubtitle, Button } from 'reactstrap';
 
-export default class TLEMain extends React.Component {
-    constructor(props:any, context:any) {
+interface ITLEMainProps{
+    title:string
+}
+export default class TLEMain extends React.Component<ITLEMainProps, any> {
+    constructor(props:ITLEMainProps, context:any) {
         super(props, context);
  }
 

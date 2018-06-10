@@ -61,7 +61,7 @@ module.exports={
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css"
-          })
-       // new CopyWebpackPlugin({"from":"src\settings.js", "to":"settings.js"})
+        }),
+        new CopyWebpackPlugin([{"from":"./src/settings.js", "to":"settings.js"}])
     ]
 }

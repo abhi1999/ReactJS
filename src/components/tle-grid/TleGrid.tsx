@@ -5,11 +5,13 @@ import _ from 'lodash';
 import {AgGridReact} from 'ag-grid-react';
 import DateCellRenderer from './widgets/DateCellRenderer';
 
-export default class TLEGrid extends React.Component {
-    constructor(props:any, context:any) {
-        super(props, context);
+interface ITLEGridProps{
+    title:string
+}
 
-      
+export default class TLEGrid extends React.Component<ITLEGridProps, any> {
+    constructor(props:ITLEGridProps, context:any) {
+        super(props, context);
         this.state = {
             columnDefs: this.createColumnDefs(),
             rowData: this.createRowData()
@@ -59,15 +61,6 @@ export default class TLEGrid extends React.Component {
                 headerName:"Data"
             }
         ];
-    /*
-        this.columnNames.forEach(colName => {
-            columnDefs.push({
-                headerName: colName.toUpperCase(),
-                field: colName,
-                width: 100
-            });
-        });
-        */
         return columnDefs;
     }
     render() {

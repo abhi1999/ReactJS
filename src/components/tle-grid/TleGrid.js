@@ -55,15 +55,6 @@ export default class TLEGrid extends React.Component {
                 headerName: "Data"
             }
         ];
-        /*
-            this.columnNames.forEach(colName => {
-                columnDefs.push({
-                    headerName: colName.toUpperCase(),
-                    field: colName,
-                    width: 100
-                });
-            });
-            */
         return columnDefs;
     }
     render() {

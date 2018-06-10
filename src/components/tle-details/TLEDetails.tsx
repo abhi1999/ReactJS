@@ -1,8 +1,11 @@
 import * as React from 'react';
 import { Card, CardBody, CardHeader, CardFooter, CardTitle, CardSubtitle } from 'reactstrap';
 
-export default class Details extends React.Component {
-    constructor(props, context) {
+interface ITLEDetailsProps{
+    title:string
+}
+export default class TLEDetails extends React.Component<ITLEDetailsProps, any> {
+    constructor(props:ITLEDetailsProps, context:any) {
         super(props, context);
     }
     public render() {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Card, CardBody, CardHeader, CardFooter, CardTitle, CardSubtitle } from 'reactstrap';
-export default class Details extends React.Component {
+export default class TLEDetails extends React.Component {
     constructor(props, context) {
         super(props, context);
     }
@@ -14,4 +14,4 @@ export default class Details extends React.Component {
             React.createElement(CardFooter, null, "Powered by Data Masons Software ")));
     }
 }
-//# sourceMappingURL=Details.js.map
+//# sourceMappingURL=TLEDetails.js.map
