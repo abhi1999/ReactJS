@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import * as Notifications from "react-notification-system";
+import Notifications from 'react-notification-system-redux';
 
 import 'ag-grid/dist/styles/ag-grid.css';
 import 'ag-grid/dist/styles/theme-fresh.css';
@@ -43,6 +43,7 @@ export default class App extends React.Component<IAppProps, any>{
         return (
             <Router>
                 <div id="wrapper" className="toggled">
+                <span>{this.props.loading? "Loading":"DOne"}</span>
                     <Sidebar/>
                     <div id="page-content-wrapper">
                         <div className="container-fluid">
@@ -60,7 +61,7 @@ export default class App extends React.Component<IAppProps, any>{
                             }}/>
                         </div>
                     </div>
-                    <Notifications notification={this.props.notifications} style={defaultStyle} />
+                    <Notifications notifications={this.props.notifications} style={defaultStyle} />
                 </div>
             </Router>
         );

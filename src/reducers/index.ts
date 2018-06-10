@@ -1,12 +1,13 @@
-import {combineReducers} from "redux";
+import { combineReducers } from "redux";
 import mainReducer from "./mainReducer";
-import {reducer as notifications} from "react-notification-system-redux";
+import { reducer as notifications } from "react-notification-system-redux";
 
 const appReducer = combineReducers({
-    mainReducer, 
-    notifications
+    mainReducer: mainReducer, 
+    notifications: notifications
 })
-
+export default appReducer;
+/*
 const rootReducer = (state, action)=>{
     if(action.type === "CANCEL"){
         state = undefined;
@@ -15,3 +16,4 @@ const rootReducer = (state, action)=>{
 }
 
 export default rootReducer;
+*/

@@ -8,6 +8,7 @@ const initialState = {
 }
 
 export const mainReducer = (state = initialState, action)=>{
+    console.log('inreducer', action)
     if(!action)
         return state;
     console.log(action);
