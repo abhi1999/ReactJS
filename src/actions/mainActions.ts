@@ -36,7 +36,7 @@ const loadDataSuccess = () => {
 export const loadTLEData= ()=>(dispatch, getState)=>{
     dispatch(loadDataState());
     let url = Settings.services.baseUrl + Settings.services.endpoints.tleData;
-    return axios.get(url, {params:{items:5})
+    return axios.get(url, {params:{items:5}})
                 .then((response)=>{
                     dispatch(loadTLEDataSuccess(response.data))
                 })
