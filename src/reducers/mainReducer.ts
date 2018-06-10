@@ -4,6 +4,7 @@ import { LOAD_TLE_GRID, SIGNAL_TLE_GRID_LOAD_SUCCESS, LOAD_DATA, LOAD_ERROR } fr
 const initialState = {
     loading:false, 
     data:[],
+    tleData:[],
     date:null,
 }
 
@@ -17,6 +18,12 @@ export const mainReducer = (state = initialState, action)=>{
             return {
                 ...state,
                 loading:true
+            }
+        case "SIGNAL_TLE_GRID_LOAD_SUCCESS":
+            return {
+                ...state,
+                loading:false,
+                tleData: action.data
             }
         case "LOAD_DATA_SUCESS":
             return {

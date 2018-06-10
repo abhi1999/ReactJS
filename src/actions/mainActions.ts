@@ -35,18 +35,17 @@ const loadDataSuccess = () => {
 
 export const loadTLEData= ()=>(dispatch, getState)=>{
     dispatch(loadDataState());
-    
     let url = Settings.services.baseUrl + Settings.services.endpoints.tleData;
-    return axios.get(url)
+    return axios.get(url, {params:{items:5})
                 .then((response)=>{
                     dispatch(loadTLEDataSuccess(response.data))
                 })
                 .catch((error)=>{
                     dispatch(loadDataError(error));
-                    Notifications.error({
+                    dispatch(Notifications.error({
                         ...erroNotificationOptions,
                         message: Settings.services.endpoints.tleData +" :: " + error.message
-                    })
+                    }));
                 })
 }
 

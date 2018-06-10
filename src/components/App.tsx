@@ -13,11 +13,13 @@ import TLEDetails from "./tle-details/TLEDetails";
 
 import {BrowserRouter as Router, Link, Route} from "react-router-dom";
 
+import TLEGridContainer from "./../containers/tle/TLEGridContainer"
 
 declare let Settings:any;
 interface IAppProps{
     loading:boolean,
     loadData:()=>{},
+    loadTLEData:()=>{},
     notifications:any
 }
 export default class App extends React.Component<IAppProps, any>{
@@ -26,6 +28,7 @@ export default class App extends React.Component<IAppProps, any>{
     }
     componentDidMount(){
         this.props.loadData();
+        this.props.loadTLEData();
     }
     componentWillReceiveProps(nextProps){
         console.log('next props' ,nextProps);
@@ -53,7 +56,8 @@ export default class App extends React.Component<IAppProps, any>{
                             return <TLEMain title={Settings.appTitle}/>
                             }}/>
                             <Route exact={true} path="/tlegrid" render={()=>{
-                            return <TLEGrid title={Settings.appTitle}/>
+                            //return <TLEGrid title={Settings.appTitle}/>
+                            return <TLEGridContainer/>
                             }}/>
                             <Route exact={true} path="/details/:poOrderNumber" render={({match})=>{
                             return <TLEDetails title={Settings.appTitle}/>

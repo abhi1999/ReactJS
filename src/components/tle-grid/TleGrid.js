@@ -62,7 +62,7 @@ export default class TLEGrid extends React.Component {
             enableSorting: true,
             enableFilter: true,
             columnDefs: this.state.columnDefs,
-            rowData: this.state.rowData
+            rowData: this.props.tleData && this.props.tleData.values ? this.props.tleData.values : []
         };
         return (React.createElement(Card, null,
             React.createElement(CardHeader, null, this.props.title),

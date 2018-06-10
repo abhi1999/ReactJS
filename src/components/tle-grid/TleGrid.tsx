@@ -6,7 +6,8 @@ import {AgGridReact} from 'ag-grid-react';
 import DateCellRenderer from './widgets/DateCellRenderer';
 
 interface ITLEGridProps{
-    title:string
+    title:string,
+    tleData?:Array<any>
 }
 
 export default class TLEGrid extends React.Component<ITLEGridProps, any> {
@@ -68,7 +69,7 @@ export default class TLEGrid extends React.Component<ITLEGridProps, any> {
             enableSorting:true,
             enableFilter:true,
             columnDefs:this.state.columnDefs,
-            rowData:this.state.rowData
+            rowData:this.props.tleData && this.props.tleData.values? this.props.tleData.values:[]
         }
         return (
             <Card>
