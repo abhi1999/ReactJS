@@ -14,7 +14,7 @@ export default class SideBar extends React.Component {
             <div id="sidebar-wrapper">
                 <ul className="sidebar-nav">
                     <li className="sidebar-brand">
-                        <Link to={'/home'}>HomePage </Link>
+                        <Link exact={true} to={'/'}>HomePage </Link>
                     </li>
                     <li>
                         <Link to={'/tlegrid'}>Transaction Lifecycle Explorer </Link>

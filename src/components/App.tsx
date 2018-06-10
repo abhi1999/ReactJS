@@ -43,7 +43,6 @@ export default class App extends React.Component<IAppProps, any>{
         return (
             <Router>
                 <div id="wrapper" className="toggled">
-                <span>{this.props.loading? "Loading":"DOne"}</span>
                     <Sidebar/>
                     <div id="page-content-wrapper">
                         <div className="container-fluid">

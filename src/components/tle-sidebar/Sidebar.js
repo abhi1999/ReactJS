@@ -9,7 +9,7 @@ export default class SideBar extends React.Component {
         return (React.createElement("div", { id: "sidebar-wrapper" },
             React.createElement("ul", { className: "sidebar-nav" },
                 React.createElement("li", { className: "sidebar-brand" },
-                    React.createElement(Link, { to: '/home' }, "HomePage ")),
+                    React.createElement(Link, { exact: true, to: '/' }, "HomePage ")),
                 React.createElement("li", null,
                     React.createElement(Link, { to: '/tlegrid' }, "Transaction Lifecycle Explorer ")),
                 React.createElement("li", null,
