@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Card, CardBody, CardHeader, CardFooter, CardTitle, CardSubtitle } from 'reactstrap';
+import { Card, CardBody, CardHeader, CardFooter, CardTitle, CardSubtitle, Button } from 'reactstrap';
 import _ from 'lodash';
 import { AgGridReact } from 'ag-grid-react';
 import DateCellRenderer from './widgets/DateCellRenderer';
@@ -57,6 +57,9 @@ export default class TLEGrid extends React.Component {
         ];
         return columnDefs;
     }
+    refreshGrid() {
+        this.props.loadTLEData();
+    }
     render() {
         let gridConfig = {
             enableSorting: true,
@@ -68,9 +71,11 @@ export default class TLEGrid extends React.Component {
             React.createElement(CardHeader, null, this.props.title),
             React.createElement(CardBody, null,
                 React.createElement(CardTitle, null),
-                React.createElement(CardSubtitle, null),
-                React.createElement("div", { style: { height: '100%' }, className: "ag-fresh" },
-                    React.createElement(AgGridReact, Object.assign({}, gridConfig)))),
+                React.createElement(CardSubtitle, null,
+                    React.createElement(Button, { onClick: this.refreshGrid.bind(this) }, "Refresh")),
+                React.createElement("div", { style: { height: "65vh" } },
+                    React.createElement("div", { style: { height: '100%' }, className: "ag-fresh" },
+                        React.createElement(AgGridReact, Object.assign({}, gridConfig))))),
             React.createElement(CardFooter, null, "Powered by Data Masons Software ")));
     }
 }

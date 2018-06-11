@@ -21,11 +21,9 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     const {
-        loadData,
         loadTLEData
     } = bindActionCreators(actionCreators, dispatch)
     return {
-        loadData,
         loadTLEData
     }
 }

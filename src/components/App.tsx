@@ -27,11 +27,9 @@ export default class App extends React.Component<IAppProps, any>{
         super(props);
     }
     componentDidMount(){
-        this.props.loadData();
         this.props.loadTLEData();
     }
     componentWillReceiveProps(nextProps){
-        console.log('next props' ,nextProps);
         console.log('this props' ,this.props);
     }
     render(){
@@ -50,17 +48,16 @@ export default class App extends React.Component<IAppProps, any>{
                     <div id="page-content-wrapper">
                         <div className="container-fluid">
                             <Route exact={true} path="/" render={()=>{
-                            return <TLEMain title={Settings.appTitle}/>
+                                return <TLEMain title={Settings.appTitle}/>
                             }}/>
                             <Route exact={true} path="/home" render={()=>{
-                            return <TLEMain title={Settings.appTitle}/>
+                                return <TLEMain title={Settings.appTitle}/>
                             }}/>
                             <Route exact={true} path="/tlegrid" render={()=>{
-                            //return <TLEGrid title={Settings.appTitle}/>
-                            return <TLEGridContainer/>
+                                return <TLEGridContainer/>
                             }}/>
                             <Route exact={true} path="/details/:poOrderNumber" render={({match})=>{
-                            return <TLEDetails title={Settings.appTitle}/>
+                                return <TLEDetails title={Settings.appTitle}/>
                             }}/>
                         </div>
                     </div>

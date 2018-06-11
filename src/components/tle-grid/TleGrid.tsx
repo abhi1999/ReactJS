@@ -64,6 +64,9 @@ export default class TLEGrid extends React.Component<ITLEGridProps, any> {
         ];
         return columnDefs;
     }
+    private refreshGrid(){
+        this.props.loadTLEData();
+    }
     render() {
         let gridConfig={
             enableSorting:true,
@@ -76,9 +79,13 @@ export default class TLEGrid extends React.Component<ITLEGridProps, any> {
                 <CardHeader>{this.props.title}</CardHeader>
                 <CardBody>
                     <CardTitle></CardTitle>
-                    <CardSubtitle></CardSubtitle>
-                    <div style={{height: '100%'}} className="ag-fresh">
-                        <AgGridReact {...gridConfig}/>
+                    <CardSubtitle>
+                        <Button onClick={this.refreshGrid.bind(this)}>Refresh</Button>
+                    </CardSubtitle>
+                    <div style={{height:"65vh"}}>
+                        <div style={{height: '100%'}} className="ag-fresh">
+                            <AgGridReact {...gridConfig}/>
+                        </div>
                     </div>
                 </CardBody>
                 <CardFooter>Powered by Data Masons Software </CardFooter>

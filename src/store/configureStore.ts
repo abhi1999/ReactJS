@@ -15,36 +15,20 @@ const configureStore =(preloadedState?:any)=>{
     
     let middleware = [promise(), ReduxThunk, createLogger()];
 
-    /*const loggerMiddleware = createLogger({
-        predicate: () => process.env.NODE_ENV === 'development',
-      });
-      */
     const store = createStore(
         rootReducer, 
         preloadedState,
-        applyMiddleware(ReduxThunk)
-        //composeWithDevTools(applyMiddleware(...middleware))
+        //applyMiddleware(ReduxThunk)
+        composeWithDevTools(applyMiddleware(...middleware))
     )
-/*
+
     if(module.hot){
         module.hot.accept("../reducers", ()=>{
             const nextRootReducer = require("../reducers");
             store.replaceReducer(nextRootReducer);
         })
-    }*/
+    }
     return store;
 }
 
 export default configureStore;
-/**
- *   const router = routerMiddleware(browserHistory)
-  const store = createStore(
-    rootReducer,
-    getInitialState(),
-    compose(
-      applyMiddleware(thunk.withExtraArgument(api), router),
-      window.devToolsExtension ? window.devToolsExtension() : f => f
-    )
-  )
-
- */

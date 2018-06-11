@@ -9,27 +9,19 @@ const initialState = {
 }
 
 export const mainReducer = (state = initialState, action)=>{
-    console.log('inreducer', action)
     if(!action)
         return state;
-    console.log(action);
     switch(action.type){
         case LOAD_DATA:
             return {
                 ...state,
                 loading:true
             }
-        case "SIGNAL_TLE_GRID_LOAD_SUCCESS":
+        case SIGNAL_TLE_GRID_LOAD_SUCCESS:
             return {
                 ...state,
                 loading:false,
                 tleData: action.data
-            }
-        case "LOAD_DATA_SUCESS":
-            return {
-                ...state,
-                loading:false,
-                data: action.data
             }
         default:
             return state;
