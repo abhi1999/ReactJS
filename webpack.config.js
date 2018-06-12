@@ -23,12 +23,18 @@ module.exports={
     },
     entry:{
         app:'./src/index.tsx'
+       // vendor: ['react', 'moment', 'lodash', 'ag-grid']
     },
     output:{
         filename:'[name].[hash].js',
-        chunkFilename: '[name].bundle.js',
+        //chunkFilename: '[name].bundle.js',
         path: path.join(__dirname ,"build")
     },
+    //optimization: {
+    //    splitChunks: {
+    //        chunks: 'all'
+    //    }
+    //},
     externals:[{
 
     }],
@@ -68,6 +74,7 @@ module.exports={
             filename: "[name].[hash].css",
             chunkFilename: "[id].css"
         }),
-        new CopyWebpackPlugin([{"from":"./src/settings.js", "to":"settings.[hash].js"}])
+        new CopyWebpackPlugin([{"from":"./src/settings.js", "to":"[name].js", toType:'template'}])
+        //new CopyWebpackPlugin([{"from":"./src/settings.js", "to":"[name].[hash].js", toType:'template'}])
     ]
 }
