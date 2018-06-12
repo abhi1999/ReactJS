@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actionCreators from "../../actions/mainActions";
-import TLEGrid from "./../../components/tle-grid/TLEGrid";
+import TLEGrid from "./../../components/tle-grid/TleGrid";
 
 const mapStateToProps = (state) => {
     const {
