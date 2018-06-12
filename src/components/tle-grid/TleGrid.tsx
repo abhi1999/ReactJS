@@ -62,8 +62,8 @@ export default class TLEGrid extends React.Component<ITLEGridProps, any> {
             this.gridAPI.api.setRowData(nextPros.tleData.values)
     }
     private onGridReady(gridAPI){
-        if (gridAPI === undefined) this.gridAPI = this.gridAPI.api;
-        if(this.props.tleData && this.props.tleData.values)
+        if (gridAPI !== undefined) this.gridAPI = gridAPI;
+        if(this.gridAPI && this.props.tleData && this.props.tleData.values)
             this.gridAPI.api.setRowData(this.props.tleData.values)  
     }
     render() {

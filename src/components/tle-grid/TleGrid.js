@@ -1,28 +1,13 @@
 import * as React from 'react';
 import { Card, CardBody, CardHeader, CardFooter, CardTitle, CardSubtitle, Button } from 'reactstrap';
-import _ from 'lodash';
 import { AgGridReact } from 'ag-grid-react';
 import DateCellRenderer from './widgets/DateCellRenderer';
 export default class TLEGrid extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            columnDefs: this.createColumnDefs(),
-            rowData: this.createRowData()
+            columnDefs: this.createColumnDefs()
         };
-    }
-    createRowData() {
-        let rows = [];
-        _.times(100, () => {
-            rows.push({
-                partner: 'A',
-                type: "PO",
-                direction: 'Outbound',
-                dateReceived: new Date(),
-                poNumber: '1112323'
-            });
-        });
-        return rows;
     }
     createColumnDefs() {
         const columnDefs = [
@@ -61,11 +46,13 @@ export default class TLEGrid extends React.Component {
         this.props.loadTLEData();
     }
     componentWillReceiveProps(nextPros) {
+        if (this.gridAPI && nextPros && nextPros.tleData && nextPros.tleData.values)
+            this.gridAPI.api.setRowData(nextPros.tleData.values);
     }
-    onGridReady(grid) {
-        if (gridAPI === undefined)
-            this.gridAPI = this.gridAPI.api;
-        if (this.props.tleData && this.props.tleData.values)
+    onGridReady(gridAPI) {
+        if (gridAPI !== undefined)
+            this.gridAPI = gridAPI;
+        if (this.gridAPI && this.props.tleData && this.props.tleData.values)
             this.gridAPI.api.setRowData(this.props.tleData.values);
     }
     render() {
@@ -88,4 +75,4 @@ export default class TLEGrid extends React.Component {
             React.createElement(CardFooter, null, "Powered by Data Masons Software ")));
     }
 }
-//# sourceMappingURL=TLEGrid.js.map
+//# sourceMappingURL=TleGrid.js.map
