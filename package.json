@@ -6,7 +6,7 @@
     "test": "jest --verbose --runInBand",
     "dev": "concurrently \"npm run startWebPack\" \"npm run tsc\"",
     "postinstall": "npm run build",
-    "start": "npm run startWebPack",
+    "start": "npm run startHttpServer",
     "startHttpServer": "http-server ./build",
     "startWebPack": "webpack-dev-server --mode development --progress --inline --hot --config webpack.config.js",
     "test:watch": "jest --watch",
