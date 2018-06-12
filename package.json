@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "awesome-typescript-loader": "^5.0.0",
+    "axios-mock-adapter": "^1.15.0",
     "concurrently": "^3.5.1",
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
