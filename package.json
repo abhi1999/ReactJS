@@ -5,7 +5,8 @@
   "scripts": {
     "test": "jest --verbose --runInBand",
     "dev": "concurrently \"npm run startWebPack\" \"npm run tsc\"",
-    "start": "npm run tscNoWatch && npm run build && http-server ./build",
+    "startBuildAndServe": "npm run build && http-server ./build",
+    "start": "http-server ./build",
     "startWebPack": "webpack-dev-server --mode development --progress --inline --hot --config webpack.config.js",
     "test:watch": "jest --watch",
     "tsc": "tsc -w || exit 0",
@@ -41,7 +42,6 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.109",
     "@types/react": "^16.3.17",
     "@types/react-dom": "^16.0.6",
     "@types/reactstrap": "^5.0.27",

@@ -18,7 +18,7 @@ export const loadTLEData= ()=>(dispatch, getState)=>{
     let url = Settings.services.baseUrl + Settings.services.endpoints.tleData;
     return axios.get(url, {params:{items:_.random(100, 100)}})
                 .then((response)=>{
-                    dispatch(loadTLEDataSuccess(response.data))
+                    dispatch(loadTLEDataSuccess(response.data));
                 })
                 .catch((error)=>{
                     dispatch(loadDataError(error));

@@ -60,12 +60,21 @@ export default class TLEGrid extends React.Component {
     refreshGrid() {
         this.props.loadTLEData();
     }
+    componentWillReceiveProps(nextPros) {
+    }
+    onGridReady(grid) {
+        if (gridAPI === undefined)
+            this.gridAPI = this.gridAPI.api;
+        if (this.props.tleData && this.props.tleData.values)
+            this.gridAPI.api.setRowData(this.props.tleData.values);
+    }
     render() {
         let gridConfig = {
             enableSorting: true,
             enableFilter: true,
             columnDefs: this.state.columnDefs,
-            rowData: this.props.tleData && this.props.tleData.values ? this.props.tleData.values : []
+            onGridReady: this.onGridReady.bind(this)
+            // rowData:this.props.tleData && this.props.tleData.values? this.props.tleData.values:[]
         };
         return (React.createElement(Card, null,
             React.createElement(CardHeader, null, this.props.title),

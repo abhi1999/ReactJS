@@ -11,6 +11,7 @@ interface ITLEGridProps{
 }
 
 export default class TLEGrid extends React.Component<ITLEGridProps, any> {
+    private gridAPI:any;
     constructor(props:ITLEGridProps, context:any) {
         super(props, context);
         this.state = {
@@ -67,12 +68,26 @@ export default class TLEGrid extends React.Component<ITLEGridProps, any> {
     private refreshGrid(){
         this.props.loadTLEData();
     }
+    componentWillReceiveProps(nextPros){
+        if(nextPros && nextPros.tleData && nextPros.tleData.values)
+            this.gridAPI.api.setRowData(nextPros.tleData.values)
+
+        //tm
+    }
+    private onGridReady(gridAPI){
+        if (gridAPI === undefined) this.gridAPI = this.gridAPI.api;
+
+        if(this.props.tleData && this.props.tleData.values)
+            this.gridAPI.api.setRowData(this.props.tleData.values)
+            
+    }
     render() {
         let gridConfig={
             enableSorting:true,
             enableFilter:true,
             columnDefs:this.state.columnDefs,
-            rowData:this.props.tleData && this.props.tleData.values? this.props.tleData.values:[]
+            onGridReady: this.onGridReady.bind(this)
+           // rowData:this.props.tleData && this.props.tleData.values? this.props.tleData.values:[]
         }
         return (
             <Card>

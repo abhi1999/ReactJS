@@ -3,7 +3,7 @@ import  { compose, createStore, applyMiddleware } from "redux";
 import { createLogger } from "redux-logger";
 import ReduxThunk from "redux-thunk";
 import promise from "redux-promise-middleware";
-import { composeWithDevTools } from 'redux-devtools-extension'
+//import { composeWithDevTools } from 'redux-devtools-extension'
 
 import rootReducer from "../reducers";
 
@@ -19,7 +19,8 @@ const configureStore =(preloadedState?:any)=>{
         rootReducer, 
         preloadedState,
         //applyMiddleware(ReduxThunk)
-        composeWithDevTools(applyMiddleware(...middleware))
+        //composeWithDevTools(applyMiddleware(...middleware))
+        compose(applyMiddleware(...middleware))
     )
 
     if(module.hot){
