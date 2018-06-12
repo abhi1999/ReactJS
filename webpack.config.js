@@ -6,6 +6,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require('path');
 const rootSrc = path.resolve(__dirname, './src');
 
+var Visualizer = require('webpack-visualizer-plugin');
+
+
+
 module.exports={
     devtool:'inline-source-map', 
     devServer:{
@@ -22,6 +26,7 @@ module.exports={
     },
     output:{
         filename:'[name].[hash].js',
+        chunkFilename: '[name].bundle.js',
         path: path.join(__dirname ,"build")
     },
     externals:[{
@@ -54,6 +59,7 @@ module.exports={
         extensions: ['.js', '.ts', '.jsx', '.tsx', '.css', '.scss']
     }, 
     plugins:[
+        new Visualizer({filename: './statistics.html'}),
         new htmlWebpackPlugin({
             filename: 'index.html',
             template: __dirname + '/src/index.html'

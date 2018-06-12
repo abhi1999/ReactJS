@@ -12,7 +12,8 @@
     "test:watch": "jest --watch",
     "tsc": "tsc -w || exit 0",
     "tscNoWatch": "tsc || exit 0",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js --mode=production",
+    "jsonForVisualization": "webpack --json > stats.json"
   },
   "author": "",
   "license": "ISC",
@@ -75,7 +76,8 @@
     "webpack": "^4.8.3",
     "webpack-bundle-analyzer": "^2.11.3",
     "webpack-cli": "^2.1.3",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.1.4",
+    "webpack-visualizer-plugin": "^0.1.11"
   },
   "engines": {
     "node": "8.11.2",
