@@ -2,7 +2,6 @@
   "name": "react-template",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
   "scripts": {
     "test": "jest --verbose --runInBand",
     "dev": "concurrently \"npm run startWebPack\" \"npm run tsc\"",

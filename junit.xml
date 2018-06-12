@@ -1,0 +1,6 @@
+<testsuites name="jest tests" tests="1" failures="0" time="0.108">
+  <testsuite name="mainActions" errors="0" failures="0" skipped="0" timestamp="2018-06-12T01:39:30" time="0.108" tests="1">
+    <testcase classname="mainActions loads tle grd" name="mainActions loads tle grd" time="0.002">
+    </testcase>
+  </testsuite>
+</testsuites>
