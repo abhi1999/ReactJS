@@ -7,7 +7,7 @@
     "dev": "concurrently \"npm run startWebPack\" \"npm run tsc\"",
     "postinstall": "rm -rf ./build && npm run build",
     "start": "npm run startHttpServer",
-    "startHttpServer": "http-server ./build",
+    "startHttpServer": "http-server ./build2",
     "startWebPack": "webpack-dev-server --mode development --progress --inline --hot --config webpack.config.js",
     "test:watch": "jest --watch",
     "tsc": "tsc -w || exit 0",
