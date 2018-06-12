@@ -21,8 +21,8 @@ module.exports={
         app:'./src/index.tsx'
     },
     output:{
-        filename:'[name].js',
-        path: path.join(__dirname ,"build2")
+        filename:'[name].[hash].js',
+        path: path.join(__dirname ,"build")
     },
     externals:[{
 
@@ -59,9 +59,9 @@ module.exports={
             template: __dirname + '/src/index.html'
         }),
         new MiniCssExtractPlugin({
-            filename: "[name].css",
+            filename: "[name].[hash].css",
             chunkFilename: "[id].css"
         }),
-        new CopyWebpackPlugin([{"from":"./src/settings.js", "to":"settings.js"}])
+        new CopyWebpackPlugin([{"from":"./src/settings.js", "to":"settings.[hash].js"}])
     ]
 }
