@@ -4,10 +4,12 @@ import { Card, CardImg, CardText, CardBody,CardHeader,CardFooter,
 import _ from 'lodash';
 import {AgGridReact} from 'ag-grid-react';
 import DateCellRenderer from './widgets/DateCellRenderer';
+import { loadTLEData } from '../../actions/mainActions';
 
 interface ITLEGridProps{
     title:string,
-    tleData?:Array<any>
+    tleData?:Array<any>,
+    loadTLEData: ()=>{}
 }
 
 export default class TLEGrid extends React.Component<ITLEGridProps, any> {
@@ -15,23 +17,10 @@ export default class TLEGrid extends React.Component<ITLEGridProps, any> {
     constructor(props:ITLEGridProps, context:any) {
         super(props, context);
         this.state = {
-            columnDefs: this.createColumnDefs(),
-            rowData: this.createRowData()
+            columnDefs: this.createColumnDefs()
         };
     }
-    private createRowData(){
-        let rows =[];
-        _.times(100, ()=>{
-            rows.push({
-                partner:'A',
-                type:"PO",
-                direction:'Outbound',
-                dateReceived: new Date(),
-                poNumber: '1112323'
-            })
-        })
-        return rows
-    }
+
     private createColumnDefs() {
         const columnDefs = [
             {
@@ -69,17 +58,13 @@ export default class TLEGrid extends React.Component<ITLEGridProps, any> {
         this.props.loadTLEData();
     }
     componentWillReceiveProps(nextPros){
-        if(nextPros && nextPros.tleData && nextPros.tleData.values)
+        if(this.gridAPI && nextPros && nextPros.tleData && nextPros.tleData.values)
             this.gridAPI.api.setRowData(nextPros.tleData.values)
-
-        //tm
     }
     private onGridReady(gridAPI){
         if (gridAPI === undefined) this.gridAPI = this.gridAPI.api;
-
         if(this.props.tleData && this.props.tleData.values)
-            this.gridAPI.api.setRowData(this.props.tleData.values)
-            
+            this.gridAPI.api.setRowData(this.props.tleData.values)  
     }
     render() {
         let gridConfig={
