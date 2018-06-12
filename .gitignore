@@ -7,5 +7,6 @@ src/*/*/*.js.map
 src/*/*/*.js
 !src/settings.js
 !package.json
-!build/*.js
+build/
 .openode
+/build
