@@ -6,6 +6,9 @@ import {AgGridReact} from 'ag-grid-react';
 import DateCellRenderer from './widgets/DateCellRenderer';
 import { loadTLEData } from '../../actions/mainActions';
 
+//require ("./Grid.css");
+
+
 interface ITLEGridProps{
     title:string,
     tleData?:Array<any>,

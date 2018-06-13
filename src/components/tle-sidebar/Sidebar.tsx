@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Card, CardBody, CardHeader, CardFooter, CardTitle, CardSubtitle } from 'reactstrap';
 import { Link} from "react-router-dom";
 
-import "./SidebarStyle.css"
+require ("./SidebarStyle.css");
 
 
 export default class SideBar extends React.Component {

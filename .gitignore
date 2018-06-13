@@ -10,3 +10,5 @@ src/*/*/*.js
 build/
 .openode
 /build
+/coverage
+junit.xml

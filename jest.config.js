@@ -13,12 +13,6 @@ module.exports = {
         "json"
     ],
     verbose: true,
-    unlockedModulePathPatterns:[
-        "<rootDir>/node_modules/react",
-        "<rootDir>/node_modules/enzyme",
-        "<rootDir>/node_modules/react-dom",
-        "<rootDir>/node_modules/fbjs"
-    ],
     testResultsProcessor: "./node_modules/jest-junit",
     coveragePathIgnorePatterns: [".*\\.d\\.ts", "<rootDir>/node_modules"],
     modulePathIgnorePatterns: [".*\\.d\\.ts", "<rootDir>/node_modules"],

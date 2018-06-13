@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
             tleData
         }
     }= state;
-    let title ="Gird"
+    let title ="Transactions Lifecycle Explorer"
     return {
         title,
         loading, 
